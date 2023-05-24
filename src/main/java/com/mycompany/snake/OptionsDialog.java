@@ -57,9 +57,10 @@ public class OptionsDialog extends javax.swing.JDialog{
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Name:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+        jLabel1.setText("New name");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
 
+        jTextFieldOptions1.setPreferredSize(new java.awt.Dimension(64, 42));
         jTextFieldOptions1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextFieldOptions1FocusLost(evt);
@@ -70,7 +71,7 @@ public class OptionsDialog extends javax.swing.JDialog{
                 jTextFieldOptions1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldOptions1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 80, 20));
+        jPanel1.add(jTextFieldOptions1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, 100, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,7 +153,7 @@ public class OptionsDialog extends javax.swing.JDialog{
     }//GEN-LAST:event_jButtonNewGameActionPerformed
 
     private void jTextFieldOptions1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldOptions1FocusLost
-        if(ConfigData.instance.getName() != null){
+        if (jTextFieldOptions1 != null) {    
             ConfigData.instance.setName(jTextFieldOptions1.getText());
         }
     }//GEN-LAST:event_jTextFieldOptions1FocusLost

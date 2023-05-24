@@ -34,10 +34,18 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLName">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Name:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLTextName">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -46,10 +54,18 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLScore">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Score:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLNumScore">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

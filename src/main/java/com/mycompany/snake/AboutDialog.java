@@ -18,6 +18,7 @@ public class AboutDialog extends javax.swing.JDialog {
     public AboutDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     public void setInitGamer(InitGamer initGamer) {

@@ -39,20 +39,14 @@ public class Game extends javax.swing.JFrame {
         scoreboard = new com.mycompany.snake.ScoreBoard();
         board = new com.mycompany.snake.Board();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
         jMenuEdit = new javax.swing.JMenu();
         jItemConfig = new javax.swing.JMenuItem();
         jMenuAbout = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 102));
         setResizable(false);
-        addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                formFocusLost(evt);
-            }
-        });
         getContentPane().add(scoreboard, java.awt.BorderLayout.PAGE_END);
 
         board.setPreferredSize(new java.awt.Dimension(900, 900));
@@ -76,19 +70,13 @@ public class Game extends javax.swing.JFrame {
         getContentPane().add(board, java.awt.BorderLayout.LINE_START);
 
         jMenuBar1.setFocusCycleRoot(true);
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenuEdit.setText("Edit");
-        jMenuEdit.addFocusListener(new java.awt.event.FocusAdapter() {
+        jMenuBar1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jMenuEditFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jMenuEditFocusLost(evt);
+                jMenuBar1FocusGained(evt);
             }
         });
+
+        jMenuEdit.setText("Edit");
         jMenuEdit.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
@@ -96,20 +84,11 @@ public class Game extends javax.swing.JFrame {
                 jMenuEditMenuDeselected(evt);
             }
             public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMenuEditMenuSelected(evt);
             }
         });
         jMenuEdit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuEditMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jMenuEditMousePressed(evt);
-            }
-        });
-        jMenuEdit.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentHidden(java.awt.event.ComponentEvent evt) {
-                jMenuEditComponentHidden(evt);
             }
         });
 
@@ -123,19 +102,6 @@ public class Game extends javax.swing.JFrame {
             public void menuKeyTyped(javax.swing.event.MenuKeyEvent evt) {
             }
         });
-        jItemConfig.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jItemConfigFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jItemConfigFocusLost(evt);
-            }
-        });
-        jItemConfig.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentHidden(java.awt.event.ComponentEvent evt) {
-                jItemConfigComponentHidden(evt);
-            }
-        });
         jItemConfig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jItemConfigActionPerformed(evt);
@@ -146,37 +112,19 @@ public class Game extends javax.swing.JFrame {
         jMenuBar1.add(jMenuEdit);
 
         jMenuAbout.setText("About");
-        jMenuAbout.addMenuKeyListener(new javax.swing.event.MenuKeyListener() {
-            public void menuKeyPressed(javax.swing.event.MenuKeyEvent evt) {
-                jMenuAboutMenuKeyPressed(evt);
-            }
-            public void menuKeyReleased(javax.swing.event.MenuKeyEvent evt) {
-            }
-            public void menuKeyTyped(javax.swing.event.MenuKeyEvent evt) {
-            }
-        });
-        jMenuAbout.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMenuAboutMenuSelected(evt);
-            }
-        });
         jMenuAbout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jMenuAboutMousePressed(evt);
             }
         });
 
-        jMenuItem1.setText("About Game");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem.setText("About Game");
+        jMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuItemActionPerformed(evt);
             }
         });
-        jMenuAbout.add(jMenuItem1);
+        jMenuAbout.add(jMenuItem);
 
         jMenuBar1.add(jMenuAbout);
 
@@ -193,52 +141,20 @@ public class Game extends javax.swing.JFrame {
         options.setVisible(true);
     }//GEN-LAST:event_jItemConfigActionPerformed
 
-    private void jMenuEditFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jMenuEditFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuEditFocusGained
-
-    private void jMenuEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuEditMouseClicked
-
-    }//GEN-LAST:event_jMenuEditMouseClicked
-
     private void jMenuEditMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuEditMousePressed
         board.pausedGame();
     }//GEN-LAST:event_jMenuEditMousePressed
-
-    private void jMenuEditFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jMenuEditFocusLost
-
-    }//GEN-LAST:event_jMenuEditFocusLost
-
-    private void jMenuEditComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jMenuEditComponentHidden
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuEditComponentHidden
-
-    private void jItemConfigFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jItemConfigFocusLost
-
-    }//GEN-LAST:event_jItemConfigFocusLost
-
-    private void jItemConfigComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jItemConfigComponentHidden
-
-    }//GEN-LAST:event_jItemConfigComponentHidden
 
     private void boardFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_boardFocusGained
         //board.continueGame();
     }//GEN-LAST:event_boardFocusGained
 
-    private void jMenuAboutMenuKeyPressed(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_jMenuAboutMenuKeyPressed
-
-    }//GEN-LAST:event_jMenuAboutMenuKeyPressed
-
-    private void jMenuAboutMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenuAboutMenuSelected
-
-    }//GEN-LAST:event_jMenuAboutMenuSelected
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemActionPerformed
         board.pausedGame();
         about = new AboutDialog(this, true);
         about.setInitGamer(board);
         about.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jMenuItemActionPerformed
 
     private void jMenuAboutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuAboutMousePressed
         board.pausedGame();
@@ -248,21 +164,13 @@ public class Game extends javax.swing.JFrame {
         board.continueGame();
     }//GEN-LAST:event_jMenuEditMenuDeselected
 
-    private void jItemConfigFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jItemConfigFocusGained
-
-    }//GEN-LAST:event_jItemConfigFocusGained
-
     private void jItemConfigMenuKeyPressed(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_jItemConfigMenuKeyPressed
          board.pausedGame();
     }//GEN-LAST:event_jItemConfigMenuKeyPressed
 
-    private void formFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusLost
+    private void jMenuBar1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jMenuBar1FocusGained
 
-    }//GEN-LAST:event_formFocusLost
-
-    private void jMenuEditMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenuEditMenuSelected
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuEditMenuSelected
+    }//GEN-LAST:event_jMenuBar1FocusGained
 
     /**
      * @param args the command line arguments
@@ -306,11 +214,10 @@ public class Game extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.mycompany.snake.Board board;
     private javax.swing.JMenuItem jItemConfig;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenuAbout;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuEdit;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem;
     private com.mycompany.snake.ScoreBoard scoreboard;
     // End of variables declaration//GEN-END:variables
 }

@@ -79,33 +79,33 @@ public class GameOverDialog extends javax.swing.JDialog {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Highscore:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, -1, -1));
+        jLabel5.setText("Highscore");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
 
         jLabelHighScore.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelHighScore.setForeground(new java.awt.Color(255, 255, 255));
         jLabelHighScore.setText("jLabel6");
-        jPanel1.add(jLabelHighScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, -1, -1));
+        jPanel1.add(jLabelHighScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 50, -1, -1));
 
         jLabelScore.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelScore.setForeground(new java.awt.Color(255, 255, 255));
         jLabelScore.setText("jLabel4");
-        jPanel1.add(jLabelScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 60, 30));
+        jPanel1.add(jLabelScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 60, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Score:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, -1, -1));
+        jLabel3.setText("Score");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Name:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+        jLabel1.setText("Name");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
         jLabelName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelName.setForeground(new java.awt.Color(255, 255, 255));
         jLabelName.setText("jLabel2");
-        jPanel1.add(jLabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
+        jPanel1.add(jLabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
 
         jButtonConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/optionsbutton.png"))); // NOI18N
         jButtonConfig.setContentAreaFilled(false);

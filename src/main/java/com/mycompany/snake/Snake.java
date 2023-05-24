@@ -50,8 +50,7 @@ public class Snake {
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
-    
-    
+
     /*private boolean prevNodeLeft(int i){
         Node prevNode = listOfNodes.get(i + 1);
         Node nodeToPrint = listOfNodes.get(i);
@@ -135,88 +134,86 @@ public class Snake {
             return false;
         }
     }*/
-    
-    private boolean prevNodeLeft(int i){
+    private boolean prevNodeLeft(int i) {
         int prevCol = listOfNodes.get(i + 1).getCol();
         int colToPrint = listOfNodes.get(i).getCol();
-        if (colToPrint != 0) {
-            return prevCol < colToPrint;
+        if (prevCol < colToPrint) {
+            return true;
         } else {
-            return prevCol > colToPrint;
+            return false;
         }
     }
-    
-    public boolean prevNodeRight(int i){
+
+    public boolean prevNodeRight(int i) {
         int prevCol = listOfNodes.get(i + 1).getCol();
         int colToPrint = listOfNodes.get(i).getCol();
-        if (colToPrint != 0) {
-            return prevCol > colToPrint;
+        if (prevCol > colToPrint) {
+            return true;
         } else {
-            return prevCol < colToPrint;
+            return false;
         }
     }
-    
-    public boolean prevNodeUp(int i){
+
+    public boolean prevNodeUp(int i) {
         int prevRow = listOfNodes.get(i + 1).getRow();
         int rowToPrint = listOfNodes.get(i).getRow();
-        if (rowToPrint != 0) {
-            return prevRow < rowToPrint;
+        if (prevRow < rowToPrint) {
+            return true;
         } else {
-            return prevRow > rowToPrint;
+            return false;
         }
     }
-    
-    public boolean prevNodeDown(int i){
+
+    public boolean prevNodeDown(int i) {
         int prevRow = listOfNodes.get(i + 1).getRow();
         int rowToPrint = listOfNodes.get(i).getRow();
-        if (rowToPrint != 0) {
-            return prevRow > rowToPrint;
+        if (prevRow > rowToPrint) {
+            return true;
         } else {
-            return prevRow < rowToPrint;
+            return false;
         }
     }
-    
-    private boolean nextNodeLeft(int i){
+
+    private boolean nextNodeLeft(int i) {
         int nextCol = listOfNodes.get(i - 1).getCol();
         int colToPrint = listOfNodes.get(i).getCol();
-        if (colToPrint != 0) {
-            return nextCol < colToPrint;
+        if (nextCol < colToPrint) {
+            return true;
         } else {
-            return nextCol > colToPrint;
+            return false;
         }
     }
-    
-    public boolean nextNodeRight(int i){
+
+    public boolean nextNodeRight(int i) {
         int nextCol = listOfNodes.get(i - 1).getCol();
         int colToPrint = listOfNodes.get(i).getCol();
-        if (colToPrint != 0) {
-            return nextCol > colToPrint;
+        if (nextCol > colToPrint) {
+            return true;
         } else {
-            return nextCol < colToPrint;
+            return false;
         }
     }
-    
-    public boolean nextNodeUp(int i){
+
+    public boolean nextNodeUp(int i) {
         int nextRow = listOfNodes.get(i - 1).getRow();
         int rowToPrint = listOfNodes.get(i).getRow();
-        if (rowToPrint != 0) {
-            return nextRow < rowToPrint;
+        if (nextRow < rowToPrint) {
+            return true;
         } else {
-            return nextRow > rowToPrint;
+            return false;
         }
     }
-        
-    public boolean nextNodeDown(int i){
+
+    public boolean nextNodeDown(int i) {
         int nextRow = listOfNodes.get(i - 1).getRow();
         int rowToPrint = listOfNodes.get(i).getRow();
-        if (rowToPrint != 0) {
-            return nextRow > rowToPrint;
+        if (nextRow > rowToPrint) {
+            return true;
         } else {
-            return nextRow < rowToPrint;
+            return false;
         }
     }
-        
-    
+
     public void printSnake(Graphics g, int squareWidth, int squareHeight) {
 
         Node nodeToPrint;
@@ -242,22 +239,22 @@ public class Snake {
             } else if (nodeToPrint == listOfNodes.get(listOfNodes.size() - 1)) {
                 Node previousNode = listOfNodes.get(listOfNodes.size() - 2);
                 if (nodeToPrint.getRow() - 1 == previousNode.getRow() && nodeToPrint.getCol() == previousNode.getCol()) {
-                    
+
                     Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NTAIL);
-                    
+
                 } else if (nodeToPrint.getRow() + 1 == previousNode.getRow() && nodeToPrint.getCol() == previousNode.getCol()) {
-                    
+
                     Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.STAIL);
-                    
+
                 } else if (nodeToPrint.getRow() == previousNode.getRow() && nodeToPrint.getCol() + 1 == previousNode.getCol()) {
-                    
+
                     Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.WTAIL);
-                    
+
                 } else if (nodeToPrint.getRow() == previousNode.getRow() && nodeToPrint.getCol() - 1 == previousNode.getCol()) {
-                    
+
                     Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.ETAIL);
                 }
-            } else {                
+            } else {
                 Node prevNode = listOfNodes.get(i + 1);
                 Node nextNode = listOfNodes.get(i - 1);
                 if (prevNode.getRow() == nextNode.getRow()) {
@@ -275,21 +272,84 @@ public class Snake {
                         Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.VBODY);
                     }
                 } else {
-                    //esquinas
-                    if (nextNodeUp(i) && prevNodeRight(i) || nextNodeRight(i) && prevNodeUp(i)) {
-                        
-                        Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NEBODY);
+                    int boardRowCol = (ConfigData.instance.getBoardRowCol() - 1);
+                    if (nextNode.getRow() == nodeToPrint.getRow() && prevNode.getCol() == nodeToPrint.getCol()) {
+                        if (nextNode.getCol() > nodeToPrint.getCol() && prevNode.getRow() < nodeToPrint.getRow()) {
+                            //Pinto las ne pero con las dos excepciones
+                            if (nextNode.getRow() == boardRowCol && prevNode.getRow() == 0) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SEBODY);
+                            } else if (nextNode.getCol() == boardRowCol && prevNode.getCol() == 0) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NOBODY);
+                            } else {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NEBODY);
+                            }
+                        } else if (nextNode.getCol() > nodeToPrint.getCol() && prevNode.getRow() > nodeToPrint.getRow()) {
+                            // Pinto las se con excepciones
+                            if (nextNode.getRow() == 0 && prevNode.getRow() == boardRowCol) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NEBODY);
+                            } else if (nextNode.getCol() == boardRowCol && prevNode.getCol() == 0) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SOBODY);
+                            } else {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SEBODY);
+                            }
+                        } else if (nextNode.getCol() < nodeToPrint.getCol() && prevNode.getRow() < nodeToPrint.getRow()) {
+                            // Pinto las no con excepciones
+                            if (nextNode.getCol() == 0 && prevNode.getCol() == boardRowCol) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NEBODY);
+                            } else if (nextNode.getRow() == boardRowCol && prevNode.getRow() == 0) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SOBODY);
+                            } else {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NOBODY);
+                            }
+                        } else if (nextNode.getCol() < nodeToPrint.getCol() && prevNode.getRow() > nodeToPrint.getRow()) {
+                            // Pinto las so con excepciones
+                            if (nextNode.getCol() == 0 && prevNode.getCol() == boardRowCol) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SEBODY);
+                            } else if (nextNode.getRow() == 0 && prevNode.getRow() == boardRowCol) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NOBODY);
+                            } else {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SOBODY);
+                            }
+                        }
 
-                    } else if (nextNodeUp(i) && prevNodeLeft(i)||nextNodeLeft(i)&&prevNodeUp(i)) {
-                        
-                        Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NOBODY);
-
-                    } else if ((nextNodeDown(i)&& prevNodeRight(i)) || (nextNodeRight(i) && prevNodeDown(i)) || (prevNodeRight(i) && nextNodeDown(i) )) {
-                        
-                        Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SEBODY);
-
-                    } else {
-                        Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SOBODY);
+                    } else if (nextNode.getCol() == nodeToPrint.getCol() && prevNode.getRow() == nodeToPrint.getRow()) {
+                        if (nextNode.getRow() < nodeToPrint.getRow() && prevNode.getCol() > nodeToPrint.getCol()) {
+                            //Pinto las ne pero con las dos excepciones
+                            if (nextNode.getRow() == 0 && prevNode.getRow() == boardRowCol) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SEBODY);
+                            } else if (nextNode.getCol() == 0 && prevNode.getCol() == boardRowCol) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NOBODY);
+                            } else {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NEBODY);
+                            }                                                        
+                        } else if (nextNode.getRow() > nodeToPrint.getRow() && prevNode.getCol() > nodeToPrint.getCol()) {
+                            // Pinto las se con excepciones
+                            if (nextNode.getRow() == boardRowCol && prevNode.getRow() == 0) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NEBODY);
+                            } else if (nextNode.getCol() == 0 && prevNode.getCol() == boardRowCol) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SOBODY);
+                            } else {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SEBODY);
+                            }                                                        
+                        } else if (nextNode.getRow() < nodeToPrint.getRow() && prevNode.getCol() < nodeToPrint.getCol()) {
+                            // Pinto las no con excepciones
+                            if (nextNode.getCol() == boardRowCol && prevNode.getCol() == 0) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NEBODY);
+                            } else if (nextNode.getRow() == 0 && prevNode.getRow() == boardRowCol) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SOBODY);
+                            } else {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NOBODY);
+                            }                                                      
+                        } else if (nextNode.getRow() > nodeToPrint.getRow() && prevNode.getCol() < nodeToPrint.getCol()) {
+                            // Pinto las so con excepciones
+                            if (nextNode.getCol() == boardRowCol && prevNode.getCol() == 0) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SEBODY);
+                            } else if (nextNode.getRow() == boardRowCol && prevNode.getRow() == 0) {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NOBODY);
+                            } else {
+                                Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SOBODY);
+                            }
+                        }
                     }
                 }
             }
@@ -315,10 +375,10 @@ public class Snake {
             int newCol = col;
             switch (direction) {
                 case UP:
-                    newRow = (row - 1 < 0) ? ConfigData.instance.getBoardRowCol() - 1 : row - 1;      
+                    newRow = (row - 1 < 0) ? ConfigData.instance.getBoardRowCol() - 1 : row - 1;
                     break;
                 case DOWN:
-                    newRow = (row + 1 > ConfigData.instance.getBoardRowCol() - 1) ? 0 : row + 1;  
+                    newRow = (row + 1 > ConfigData.instance.getBoardRowCol() - 1) ? 0 : row + 1;
                     break;
                 case LEFT:
                     newCol = (col - 1 < 0) ? ConfigData.instance.getBoardRowCol() - 1 : col - 1;
@@ -360,7 +420,6 @@ public class Snake {
         }
     }
 
-    
     public boolean canMove() {
         int row = listOfNodes.get(0).getRow();
         int col = listOfNodes.get(0).getCol();
@@ -418,7 +477,6 @@ public class Snake {
             return true;
         }
     }
-
 
     public boolean eatFood(Food food) {
         int score = 0;

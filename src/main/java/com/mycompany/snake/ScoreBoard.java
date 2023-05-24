@@ -65,15 +65,21 @@ public class ScoreBoard extends javax.swing.JPanel implements Incrementer{
         setMinimumSize(new java.awt.Dimension(98, 28));
         setPreferredSize(new java.awt.Dimension(98, 28));
 
+        jLName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLName.setText("Name:");
         add(jLName);
+
+        jLTextName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         add(jLTextName);
 
         jLabel3.setText("-");
         add(jLabel3);
 
+        jLScore.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLScore.setText("Score:");
         add(jLScore);
+
+        jLNumScore.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         add(jLNumScore);
     }// </editor-fold>//GEN-END:initComponents
 

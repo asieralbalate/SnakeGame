@@ -61,7 +61,7 @@ public class ConfigDialog extends javax.swing.JDialog {
                 jComboBoxLevelActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBoxLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, -1, -1));
+        jPanel1.add(jComboBoxLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, -1, -1));
 
         jTextFieldName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextFieldName.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -74,17 +74,17 @@ public class ConfigDialog extends javax.swing.JDialog {
                 jTextFieldNameActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 110, 30));
+        jPanel1.add(jTextFieldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 110, 30));
 
         jLabelName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelName.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelName.setText("Name:");
-        jPanel1.add(jLabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
+        jLabelName.setText("Name");
+        jPanel1.add(jLabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
 
         jLabelLevel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelLevel.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLevel.setText("Difficulty:");
-        jPanel1.add(jLabelLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, -1));
+        jLabelLevel.setText("Difficulty");
+        jPanel1.add(jLabelLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/configdialogbackground.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 510));

@@ -9,12 +9,12 @@ package com.mycompany.snake;
  * @author alu10191634
  */
 public class FoodFactory {
-    
-    public Food getFood(Snake snake){
+
+    public Food getFood(Snake snake) {
         double random = Math.random();
-        if (random < 0.2){
+        if (random < 0.2) {
             return new SpecialFood(snake);
-        } else{
+        } else {
             return new Food(snake);
         }
     }

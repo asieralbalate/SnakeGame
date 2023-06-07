@@ -8,10 +8,10 @@ package com.mycompany.snake;
  *
  * @author alu10191634
  */
-public class ScoreBoard extends javax.swing.JPanel implements Incrementer{
+public class ScoreBoard extends javax.swing.JPanel implements Incrementer {
 
     private int score;
-    
+
     /**
      * Creates new form Scoreboard
      */
@@ -25,8 +25,7 @@ public class ScoreBoard extends javax.swing.JPanel implements Incrementer{
         jLNumScore.setText(String.valueOf(score));
         jLTextName.setText(ConfigData.instance.getName());
     }
-    
-    
+
     @Override
     public int getScore() {
         return score;
@@ -38,12 +37,12 @@ public class ScoreBoard extends javax.swing.JPanel implements Incrementer{
         jLNumScore.setText(String.valueOf(score));
     }
 
+    @Override
     public void resetScore() {
         score = 0;
         jLTextName.setText(ConfigData.instance.getName());
         jLNumScore.setText(String.valueOf(score));
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,8 +90,5 @@ public class ScoreBoard extends javax.swing.JPanel implements Incrementer{
     private javax.swing.JLabel jLTextName;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
-
-
-
 
 }

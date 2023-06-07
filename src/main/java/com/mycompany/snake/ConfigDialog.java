@@ -4,19 +4,19 @@
  */
 package com.mycompany.snake;
 
-import java.awt.Color;
-
 /**
  *
  * @author alu10191634
  */
 public class ConfigDialog extends javax.swing.JDialog {
-    
-    public InitGamer initGamer;
 
+    public InitGamer initGamer;
 
     /**
      * Creates new form ConfigDialog
+     *
+     * @param parent
+     * @param modal
      */
     public ConfigDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -69,11 +69,6 @@ public class ConfigDialog extends javax.swing.JDialog {
                 jTextFieldNameFocusLost(evt);
             }
         });
-        jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNameActionPerformed(evt);
-            }
-        });
         jPanel1.add(jTextFieldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 110, 30));
 
         jLabelName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -103,10 +98,6 @@ public class ConfigDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
-
-    }//GEN-LAST:event_jTextFieldNameActionPerformed
-
     private void jComboBoxLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLevelActionPerformed
         ConfigData.instance.setLevel(jComboBoxLevel.getSelectedIndex());
     }//GEN-LAST:event_jComboBoxLevelActionPerformed
@@ -123,7 +114,7 @@ public class ConfigDialog extends javax.swing.JDialog {
     public void setInitGamer(InitGamer initGamer) {
         this.initGamer = initGamer;
     }
-    
+
     /**
      * @param args the command line arguments
      */

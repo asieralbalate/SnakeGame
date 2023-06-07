@@ -9,32 +9,46 @@ package com.mycompany.snake;
  * @author alu10191634
  */
 public class ConfigData {
-    
+
     private int level;
-    private int size;
     private String name;
+    private int size;
     private int walls;
     private int obstacles;
     public static ConfigData instance = new ConfigData();
-    
+
     private ConfigData() {
-        level= 0;
+        level = 0;
+        name = "NoName";
         size = 0;
         walls = 0;
-        name = "NoName";
     }
-    
-    public void setBoardSize(int size){
-        if(size < 0) {
-            this.size = 0;
-        } else if (size > 2) {
-            this.size = 2;
+
+    /*----Name and Level----*/
+    public void setLevel(int level) {
+        if (level < 0) {
+            this.level = 0;
+        } else if (level > 2) {
+            this.level = 2;
         } else {
-            this.size= size;
+            this.level = level;
         }
     }
-    
-    public int getBoardRowCol(){
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    /*----Board----*/
+    public int getBoardRowCol() {
         switch (ConfigData.instance.getBoardSize()) {
             case 0:
                 return 20;
@@ -46,13 +60,28 @@ public class ConfigData {
                 return 20;
         }
     }
-    
-    public int getBoardSize(){
+
+    public int getBoardSize() {
         return size;
     }
-    
-    public void setWallLevel(int walls){
-        if(walls < 0) {
+
+    public void setBoardSize(int size) {
+        if (size < 0) {
+            this.size = 0;
+        } else if (size > 2) {
+            this.size = 2;
+        } else {
+            this.size = size;
+        }
+    }
+
+    /*----Walls----*/
+    public int getWall() {
+        return walls;
+    }
+
+    public void setWallLevel(int walls) {
+        if (walls < 0) {
             this.walls = 0;
         } else if (walls > 1) {
             this.walls = 1;
@@ -60,45 +89,13 @@ public class ConfigData {
             this.walls = walls;
         }
     }
-    
-    public int getWall(){
-        return walls;
+
+    public boolean getWallLevel() {
+        return ConfigData.instance.getWall() == 0;
     }
-    
-    
-    public boolean getWallLevel(){
-        switch (ConfigData.instance.getWall()) {
-            case 0:
-                return true;
-            case 1:
-                return false;
-            default:
-                return true;
-        }
-    }
-    
-    public void setLevel(int level){
-        if(level < 0) {
-            this.level = 0;
-        } else if (level > 2) {
-            this.level = 2;
-        } else {
-            this.level= level;
-        }
-    }
-    
-    public void setName(String name){
-        this.name = name;
-    }
-    
-    public int getLevel(){
-        return level;
-    }
-    
-    public String getName(){
-        return name;
-    }
-        public int getObstacle() {
+
+    /*----Obstacles----*/
+    public int getObstacle() {
         return obstacles;
     }
 
@@ -111,12 +108,8 @@ public class ConfigData {
             this.obstacles = obstacles;
         }
     }
-    
-    public boolean getObstaclesLevel(){
-        if (ConfigData.instance.getObstacle() == 0) {
-            return true;
-        } else {
-            return false;
-        }
+
+    public boolean getObstaclesLevel() {
+        return ConfigData.instance.getObstacle() == 0;
     }
 }

@@ -9,6 +9,8 @@ package com.mycompany.snake;
  * @author alu10191634
  */
 public interface InitGamer {
+
     public void initGame();
+
     public void continueGame();
 }

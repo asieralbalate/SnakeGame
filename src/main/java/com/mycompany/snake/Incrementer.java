@@ -9,7 +9,10 @@ package com.mycompany.snake;
  * @author alu10191634
  */
 public interface Incrementer {
+
     public void incrementScore(int increment);
+
     public void resetScore();
+
     public int getScore();
 }

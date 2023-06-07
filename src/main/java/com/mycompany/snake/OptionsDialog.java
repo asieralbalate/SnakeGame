@@ -13,6 +13,8 @@ public class OptionsDialog extends javax.swing.JDialog{
     public InitGamer initGamer;
     /**
      * Creates new form OptionsDialog
+     * @param parent
+     * @param modal
      */
     public OptionsDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -44,6 +46,8 @@ public class OptionsDialog extends javax.swing.JDialog{
         jButtonNewGame = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jComboBoxWalls = new javax.swing.JComboBox<>();
+        jComboBoxObstacles = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -122,6 +126,17 @@ public class OptionsDialog extends javax.swing.JDialog{
         });
         jPanel1.add(jComboBoxWalls, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
+        jComboBoxObstacles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes" }));
+        jComboBoxObstacles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxObstaclesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBoxObstacles, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
+
+        jLabel6.setText("Obstacles");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/optionsdialogbackground.jpg"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, -1, 400));
 
@@ -169,6 +184,10 @@ public class OptionsDialog extends javax.swing.JDialog{
     private void jComboBoxWallsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxWallsActionPerformed
         ConfigData.instance.setWallLevel(jComboBoxWalls.getSelectedIndex());
     }//GEN-LAST:event_jComboBoxWallsActionPerformed
+
+    private void jComboBoxObstaclesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxObstaclesActionPerformed
+        ConfigData.instance.setObstaclesLevel(jComboBoxObstacles.getSelectedIndex());
+    }//GEN-LAST:event_jComboBoxObstaclesActionPerformed
     
 
     
@@ -217,6 +236,7 @@ public class OptionsDialog extends javax.swing.JDialog{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonNewGame;
     private javax.swing.JComboBox<String> jComboBoxBoardSize;
+    private javax.swing.JComboBox<String> jComboBoxObstacles;
     private javax.swing.JComboBox<String> jComboBoxOptions1;
     private javax.swing.JComboBox<String> jComboBoxWalls;
     private javax.swing.JLabel jLabel1;
@@ -224,6 +244,7 @@ public class OptionsDialog extends javax.swing.JDialog{
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldOptions1;
     // End of variables declaration//GEN-END:variables

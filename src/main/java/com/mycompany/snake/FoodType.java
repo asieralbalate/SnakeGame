@@ -9,5 +9,5 @@ package com.mycompany.snake;
  * @author asier
  */
 public enum FoodType {
-    FOOD,SPECIALFOOD;
+    FOOD, SPECIALFOOD;
 }

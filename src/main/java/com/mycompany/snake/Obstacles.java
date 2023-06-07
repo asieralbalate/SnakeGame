@@ -13,7 +13,7 @@ import java.util.Random;
  * @author asier
  */
 public class Obstacles {
-     private List<Node> obstacles;
+    private List<Node> obstacles;
     private int numObstacles;
 
     public Obstacles(Snake snake) {

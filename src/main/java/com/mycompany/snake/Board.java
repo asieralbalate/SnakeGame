@@ -24,7 +24,6 @@ import javax.swing.Timer;
  */
 public class Board extends javax.swing.JPanel implements InitGamer {
 
-
     private Timer timer;
     private Snake snake;
     private Food food;
@@ -34,6 +33,8 @@ public class Board extends javax.swing.JPanel implements InitGamer {
     private FoodFactory foodFactory;
     private Incrementer incrementer;
     private int highScore;
+    private Obstacles obstacles;
+    private boolean isGameOver;
 
     /**
      * Creates new form Board
@@ -81,11 +82,13 @@ public class Board extends javax.swing.JPanel implements InitGamer {
         removeKeyListener(keyAdapter);
         snake = new Snake(Direction.RIGHT, 4);
         movements = new Vector<>(2);
+        obstacles = new Obstacles(snake);
         food = generateFood();
         incrementer.resetScore();
         addKeyListener(keyAdapter);
         setDeltaTime();
         timer.start();
+        isGameOver = false;
         repaint();
     }
 
@@ -98,24 +101,33 @@ public class Board extends javax.swing.JPanel implements InitGamer {
             snake.setDirection(dir);
             movements.remove(0);
         }
-        if (snake.canMove()) {
-            snake.move();
-            if (snake.eatFood(food)) {
-                incrementer.incrementScore(food.getPoints());
-                food = generateFood();
+        if (!haveNotObstacles()) {
+            if (snake.canMove() && snake.canMoveWithObstacles(obstacles.getListObstacles())) {
+                snake.move();
+                if (snake.eatFood(food)) {
+                    incrementer.incrementScore(food.getPoints());
+                    food = generateFood();
+                }
+            } else {
+                processGameOver();
             }
         } else {
-            processGameOver();
+            if (snake.canMove()) {
+                snake.move();
+                if (snake.eatFood(food)) {
+                    incrementer.incrementScore(food.getPoints());
+                    food = generateFood();
+                }
+            } else {
+                processGameOver();
+            }
+            repaint();
+            Toolkit.getDefaultToolkit().sync();
         }
-        repaint();
-        Toolkit.getDefaultToolkit().sync();
     }
 
-
-    
-    
     public void setDeltaTime() {
-        switch (ConfigData.instance.getlevel()) {
+        switch (ConfigData.instance.getLevel()) {
             case 0:
                 deltaTime = 350;
                 break;
@@ -156,6 +168,13 @@ public class Board extends javax.swing.JPanel implements InitGamer {
         }
     }
 
+    private boolean haveNotObstacles() {
+        return ConfigData.instance.getObstaclesLevel();
+    }
+    
+    public boolean isGameOverTimer() {
+        return isGameOver;
+    }
     private Food generateFood() {
         return foodFactory.getFood(snake);
     }
@@ -230,6 +249,7 @@ public class Board extends javax.swing.JPanel implements InitGamer {
         gOverDialog.setName();
         gOverDialog.setHighScore(highScore);
         gOverDialog.setVisible(true);
+        isGameOver = true;
     }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -14,6 +14,7 @@ public class ConfigData {
     private int size;
     private String name;
     private int walls;
+    private int obstacles;
     public static ConfigData instance = new ConfigData();
     
     private ConfigData() {
@@ -90,11 +91,32 @@ public class ConfigData {
         this.name = name;
     }
     
-    public int getlevel(){
+    public int getLevel(){
         return level;
     }
     
     public String getName(){
         return name;
+    }
+        public int getObstacle() {
+        return obstacles;
+    }
+
+    public void setObstaclesLevel(int obstacles) {
+        if (obstacles < 0) {
+            this.obstacles = 0;
+        } else if (obstacles > 1) {
+            this.obstacles = 1;
+        } else {
+            this.obstacles = obstacles;
+        }
+    }
+    
+    public boolean getObstaclesLevel(){
+        if (ConfigData.instance.getObstacle() == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

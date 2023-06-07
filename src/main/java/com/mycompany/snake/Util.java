@@ -65,4 +65,10 @@ public class Util {
         Image image = icons[bodyType.ordinal()].getImage();
         g.drawImage(image, col * squareWidth, row * squareHeight, squareWidth, squareHeight, null);
     }
+    
+    public static void drawObstacles(Graphics g, int row, int col, int squareWidth, int squareHeight) {
+        ImageIcon imageIcons = new ImageIcon(Util.class.getResource("/images/rock.png"));
+        Image image = imageIcons.getImage();
+        g.drawImage(image, col * squareWidth, row * squareHeight, squareWidth, squareHeight, null);
+    }
 }

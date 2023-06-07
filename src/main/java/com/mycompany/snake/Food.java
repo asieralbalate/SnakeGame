@@ -5,8 +5,6 @@
 package com.mycompany.snake;
 
 import java.awt.Graphics;
-import java.awt.Image;
-import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -43,7 +41,6 @@ public class Food extends Node{
         return POINTS;
     }
 
-    
     public int nodesWhenEat(){
         return 1;
     }

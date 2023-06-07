@@ -15,7 +15,7 @@ public class Game extends javax.swing.JFrame {
     private static ConfigDialog dialog;
     private static OptionsDialog options;
     private static AboutDialog about;
-    
+
     /**
      * Creates new form Gamesnake
      */
@@ -90,6 +90,9 @@ public class Game extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jMenuEditMousePressed(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jMenuEditMouseReleased(evt);
+            }
         });
 
         jItemConfig.setText("Configuration");
@@ -112,9 +115,21 @@ public class Game extends javax.swing.JFrame {
         jMenuBar1.add(jMenuEdit);
 
         jMenuAbout.setText("About");
+        jMenuAbout.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+                jMenuAboutMenuDeselected(evt);
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+            }
+        });
         jMenuAbout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jMenuAboutMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jMenuAboutMouseReleased(evt);
             }
         });
 
@@ -161,16 +176,36 @@ public class Game extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuAboutMousePressed
 
     private void jMenuEditMenuDeselected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenuEditMenuDeselected
-        board.continueGame();
+        if (!board.isGameOverTimer()) {
+            board.continueGame();
+        }
     }//GEN-LAST:event_jMenuEditMenuDeselected
 
     private void jItemConfigMenuKeyPressed(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_jItemConfigMenuKeyPressed
-         board.pausedGame();
+        board.pausedGame();
     }//GEN-LAST:event_jItemConfigMenuKeyPressed
 
     private void jMenuBar1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jMenuBar1FocusGained
 
     }//GEN-LAST:event_jMenuBar1FocusGained
+
+    private void jMenuAboutMenuDeselected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenuAboutMenuDeselected
+        if (!board.isGameOverTimer()) {
+            board.continueGame();
+        }
+    }//GEN-LAST:event_jMenuAboutMenuDeselected
+
+    private void jMenuEditMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuEditMouseReleased
+        if (!board.isGameOverTimer()) {
+            board.continueGame();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuEditMouseReleased
+
+    private void jMenuAboutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuAboutMouseReleased
+        if (!board.isGameOverTimer()) {
+            board.continueGame();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuAboutMouseReleased
 
     /**
      * @param args the command line arguments

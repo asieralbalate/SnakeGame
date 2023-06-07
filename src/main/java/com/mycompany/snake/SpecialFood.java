@@ -21,8 +21,6 @@ public class SpecialFood extends Food {
     public SpecialFood(Snake snake) {
         super(snake);
         Random r = new Random();
-        //timeVisible = r.nextInt(10) * 1000 + 3000;
-        //startingTime = Calendar.getInstance().getTimeInMillis();
         int row = r.nextInt(ConfigData.instance.getBoardRowCol());
         int col = r.nextInt(ConfigData.instance.getBoardRowCol());
         
@@ -40,9 +38,6 @@ public class SpecialFood extends Food {
         Util.drawImage(g, getRow(), getCol(), squareWidht, squareHeight, FoodType.SPECIALFOOD);
     }
     
-    @Override
-    public void remove() {
-    }
     
     @Override
     public int getPoints(){

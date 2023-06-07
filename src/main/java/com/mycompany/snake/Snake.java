@@ -51,169 +51,6 @@ public class Snake {
         this.direction = direction;
     }
 
-    /*private boolean prevNodeLeft(int i){
-        Node prevNode = listOfNodes.get(i + 1);
-        Node nodeToPrint = listOfNodes.get(i);
-        if((prevNode.getCol() + 1 == nodeToPrint.getCol()) || prevNode.getCol() == ConfigData.instance.getBoardRowCol()-1){
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    public boolean prevNodeRight(int i){
-        Node prevNode = listOfNodes.get(i + 1);
-        Node nodeToPrint = listOfNodes.get(i);
-        if((prevNode.getCol() - 1 == nodeToPrint.getCol()) || prevNode.getCol() == 0){
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    public boolean prevNodeUp(int i){
-        Node prevNode = listOfNodes.get(i + 1);
-        Node nodeToPrint = listOfNodes.get(i);
-        if((prevNode.getRow() + 1 == nodeToPrint.getRow())
-                || prevNode.getRow() == ConfigData.instance.getBoardRowCol() - 1){
-            return true;
-        } else {
-            return false;
-        }
-    
-    }
-    
-    public boolean prevNodeDown(int i){
-        Node prevNode = listOfNodes.get(i + 1);
-        Node nodeToPrint = listOfNodes.get(i);
-        if((prevNode.getRow() - 1 == nodeToPrint.getRow()) || prevNode.getRow() == 0){
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    private boolean nextNodeLeft(int i){
-        Node nextNode = listOfNodes.get(i - 1);
-        Node nodeToPrint = listOfNodes.get(i);
-        if((nextNode.getCol() + 1 == nodeToPrint.getCol()) || nextNode.getCol() == ConfigData.instance.getBoardRowCol() -1 ){
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    public boolean nextNodeRight(int i){
-        Node nextNode = listOfNodes.get(i - 1);
-        Node nodeToPrint = listOfNodes.get(i);
-        if((nextNode.getCol() - 1 == nodeToPrint.getCol()) || nextNode.getCol() == 0){
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    public boolean nextNodeUp(int i){
-        Node nextNode = listOfNodes.get(i - 1);
-        Node nodeToPrint = listOfNodes.get(i);
-        if((nextNode.getRow() + 1 == nodeToPrint.getRow()) 
-                ||  (nextNode.getRow() == ConfigData.instance.getBoardRowCol() - 1)){
-            return true;
-        } else {
-            return false;
-        }
-    
-    }
-        
-    public boolean nextNodeDown(int i){
-        Node nextNode = listOfNodes.get(i - 1);
-        Node nodeToPrint = listOfNodes.get(i);
-        if((nextNode.getRow() - 1 == nodeToPrint.getRow()) || (nextNode.getRow() == 0)){
-            return true;
-        } else {
-            return false;
-        }
-    }*/
-    private boolean prevNodeLeft(int i) {
-        int prevCol = listOfNodes.get(i + 1).getCol();
-        int colToPrint = listOfNodes.get(i).getCol();
-        if (prevCol < colToPrint) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean prevNodeRight(int i) {
-        int prevCol = listOfNodes.get(i + 1).getCol();
-        int colToPrint = listOfNodes.get(i).getCol();
-        if (prevCol > colToPrint) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean prevNodeUp(int i) {
-        int prevRow = listOfNodes.get(i + 1).getRow();
-        int rowToPrint = listOfNodes.get(i).getRow();
-        if (prevRow < rowToPrint) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean prevNodeDown(int i) {
-        int prevRow = listOfNodes.get(i + 1).getRow();
-        int rowToPrint = listOfNodes.get(i).getRow();
-        if (prevRow > rowToPrint) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean nextNodeLeft(int i) {
-        int nextCol = listOfNodes.get(i - 1).getCol();
-        int colToPrint = listOfNodes.get(i).getCol();
-        if (nextCol < colToPrint) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean nextNodeRight(int i) {
-        int nextCol = listOfNodes.get(i - 1).getCol();
-        int colToPrint = listOfNodes.get(i).getCol();
-        if (nextCol > colToPrint) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean nextNodeUp(int i) {
-        int nextRow = listOfNodes.get(i - 1).getRow();
-        int rowToPrint = listOfNodes.get(i).getRow();
-        if (nextRow < rowToPrint) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean nextNodeDown(int i) {
-        int nextRow = listOfNodes.get(i - 1).getRow();
-        int rowToPrint = listOfNodes.get(i).getRow();
-        if (nextRow > rowToPrint) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public void printSnake(Graphics g, int squareWidth, int squareHeight) {
 
         Node nodeToPrint;
@@ -321,7 +158,7 @@ public class Snake {
                                 Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NOBODY);
                             } else {
                                 Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NEBODY);
-                            }                                                        
+                            }
                         } else if (nextNode.getRow() > nodeToPrint.getRow() && prevNode.getCol() > nodeToPrint.getCol()) {
                             // Pinto las se con excepciones
                             if (nextNode.getRow() == boardRowCol && prevNode.getRow() == 0) {
@@ -330,7 +167,7 @@ public class Snake {
                                 Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SOBODY);
                             } else {
                                 Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SEBODY);
-                            }                                                        
+                            }
                         } else if (nextNode.getRow() < nodeToPrint.getRow() && prevNode.getCol() < nodeToPrint.getCol()) {
                             // Pinto las no con excepciones
                             if (nextNode.getCol() == boardRowCol && prevNode.getCol() == 0) {
@@ -339,7 +176,7 @@ public class Snake {
                                 Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.SOBODY);
                             } else {
                                 Util.drawSnake(g, nodeToPrint.getRow(), nodeToPrint.getCol(), squareWidth, squareHeight, BodyType.NOBODY);
-                            }                                                      
+                            }
                         } else if (nextNode.getRow() > nodeToPrint.getRow() && prevNode.getCol() < nodeToPrint.getCol()) {
                             // Pinto las so con excepciones
                             if (nextNode.getCol() == boardRowCol && prevNode.getCol() == 0) {
@@ -429,20 +266,40 @@ public class Snake {
                     if (containNode(row - 1, col)) {
                         return false;
                     }
+                    if (row - 1 < 0) {
+                        if (containNode(getBoardRC() - 1, col)) {
+                            return false;
+                        }
+                    }
                     break;
                 case DOWN:
                     if (containNode(row + 1, col)) {
                         return false;
+                    }
+                    if (row + 1 >= getBoardRC()) {
+                        if (containNode(0, col)) {
+                            return false;
+                        }
                     }
                     break;
                 case LEFT:
                     if (containNode(row, col - 1)) {
                         return false;
                     }
+                    if (col - 1 < 0) {
+                        if (containNode(row, getBoardRC() - 1)) {
+                            return false;
+                        }
+                    }
                     break;
                 case RIGHT:
                     if (containNode(row, col + 1)) {
                         return false;
+                    }
+                    if (col + 1 >= getBoardRC()) {
+                        if (containNode(row, 0)) {
+                            return false;
+                        }
                     }
                     break;
                 default:
@@ -477,16 +334,86 @@ public class Snake {
             return true;
         }
     }
+    
+    public boolean canMoveWithObstacles(List<Node> obstacles) {
+        
+        for (int i = 0; i < obstacles.size(); i++) {
+            
+            int row = obstacles.get(i).getRow();
+            int col = obstacles.get(i).getCol();
+            
+            switch (direction) {
+                case UP:
+                    if (getHeadRow() - 1 == row && getHeadCol() == col) {
+                        return false;
+                    } else if (ConfigData.instance.getWallLevel() == false) {
+                        if (getHeadRow() - 1 < 0) {
+                            if (getBoardRC() - 1 == row && getHeadCol() == col) {
+                                return false;
+                            }
+                        }
+                    }
+                    break;
+                case DOWN:
+                    if (getHeadRow() + 1 == row && getHeadCol() == col) {
+                        return false;
+                    } else if (ConfigData.instance.getWallLevel() == false) {
+                        if (getHeadRow() + 1 >= getBoardRC()) {
+                            if (0 == row && getHeadCol() == col) {
+                                return false;
+                            }
+                        }
+                    }
+                    break;
+                case RIGHT:
+                    if (getHeadRow() == row && getHeadCol() + 1 == col) {
+                        return false;
+                    } else if (ConfigData.instance.getWallLevel() == false) {
+                        if (getHeadCol() + 1 >= getBoardRC()) {
+                            if (getHeadRow() == row && 0 == col) {
+                                return false;
+                            }
+                        }
+                    }
+                    break;
+                case LEFT:
+                    if (getHeadRow() == row && getHeadCol() - 1 == col) {
+                        return false;
+                    } else if (ConfigData.instance.getWallLevel() == false) {
+                        if (getHeadCol() - 1 < 0) {
+                            if (getHeadRow() == row && getBoardRC() - 1 == col) {
+                                return false;
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+        }
+        return true;
+    } 
+
+    public int getHeadRow() {
+        return listOfNodes.get(0).getRow();
+    }
+
+    public int getHeadCol() {
+        return listOfNodes.get(0).getCol();
+    }
+
+    public int getBoardRC() {
+        return ConfigData.instance.getBoardRowCol();
+    }
 
     public boolean eatFood(Food food) {
-        int score = 0;
         if (food == null) {
             return false;
         }
         int foodRow = food.getRow();
         int foodCol = food.getCol();
-        int headRow = listOfNodes.get(0).getRow();
-        int headCol = listOfNodes.get(0).getCol();
+        int headRow = getHeadRow();
+        int headCol = getHeadCol();
         if (foodRow == headRow && foodCol == headCol) {
             toGrow += food.nodesWhenEat();
             return true;

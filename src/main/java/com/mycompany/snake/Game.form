@@ -20,6 +20,7 @@
           <Events>
             <EventHandler event="menuDeselected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMenuEditMenuDeselected"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuEditMousePressed"/>
+            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuEditMouseReleased"/>
           </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jItemConfig">
@@ -38,7 +39,9 @@
             <Property name="text" type="java.lang.String" value="About"/>
           </Properties>
           <Events>
+            <EventHandler event="menuDeselected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMenuAboutMenuDeselected"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuAboutMousePressed"/>
+            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuAboutMouseReleased"/>
           </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem">

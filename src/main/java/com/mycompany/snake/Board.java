@@ -95,9 +95,6 @@ public class Board extends javax.swing.JPanel implements InitGamer {
     private void tick() {
         if (!movements.isEmpty()) {
             Direction dir = movements.get(0);
-            if (movements.equals(dir)) {
-                movements.clear();
-            }
             snake.setDirection(dir);
             movements.remove(0);
         }
@@ -171,10 +168,11 @@ public class Board extends javax.swing.JPanel implements InitGamer {
     private boolean haveNotObstacles() {
         return ConfigData.instance.getObstaclesLevel();
     }
-    
+
     public boolean isGameOverTimer() {
         return isGameOver;
     }
+
     private Food generateFood() {
         return foodFactory.getFood(snake);
     }

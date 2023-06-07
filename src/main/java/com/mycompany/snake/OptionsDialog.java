@@ -118,7 +118,8 @@ public class OptionsDialog extends javax.swing.JDialog{
         jLabel5.setText("Walls");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
-        jComboBoxWalls.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        jComboBoxWalls.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "False", "True" }));
+        jComboBoxWalls.setToolTipText("");
         jComboBoxWalls.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxWallsActionPerformed(evt);
@@ -126,7 +127,7 @@ public class OptionsDialog extends javax.swing.JDialog{
         });
         jPanel1.add(jComboBoxWalls, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
-        jComboBoxObstacles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes" }));
+        jComboBoxObstacles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "False", "True" }));
         jComboBoxObstacles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxObstaclesActionPerformed(evt);

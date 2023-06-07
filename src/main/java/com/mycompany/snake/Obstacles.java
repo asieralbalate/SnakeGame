@@ -13,8 +13,8 @@ import java.util.Random;
  * @author asier
  */
 public class Obstacles {
-    private List<Node> obstacles;
-    private int numObstacles;
+    private final List<Node> obstacles;
+    private final int numObstacles;
 
     public Obstacles(Snake snake) {
         obstacles = new ArrayList<>();
@@ -34,11 +34,7 @@ public class Obstacles {
     }
     
     private boolean obstacleCanGenerate(Snake snake, int row, int col) {
-        if (snake.containNode(row, col) && isInTheList(row, col)) {
-            return true;
-        } else {
-            return false;
-        }
+        return snake.containNode(row, col) && isInTheList(row, col);
     }
     
     private int getNumObstacles() {

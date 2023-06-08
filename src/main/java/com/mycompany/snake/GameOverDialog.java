@@ -66,7 +66,7 @@ public class GameOverDialog extends javax.swing.JDialog {
         jLabelName = new javax.swing.JLabel();
         jButtonConfig = new javax.swing.JButton();
         jButtonPlayAgain = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -128,8 +128,8 @@ public class GameOverDialog extends javax.swing.JDialog {
         });
         jPanel1.add(jButtonPlayAgain, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 140, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondosnakeresize.jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 450));
+        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondosnakeresize.jpg"))); // NOI18N
+        jPanel1.add(jLabelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 450));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,9 +207,9 @@ public class GameOverDialog extends javax.swing.JDialog {
     private javax.swing.JButton jButtonConfig;
     private javax.swing.JButton jButtonPlayAgain;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelBackground;
     private javax.swing.JLabel jLabelHighScore;
     private javax.swing.JLabel jLabelName;
     private javax.swing.JLabel jLabelScore;

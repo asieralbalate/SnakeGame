@@ -39,7 +39,7 @@ public class ConfigDialog extends javax.swing.JDialog {
         jTextFieldName = new javax.swing.JTextField();
         jLabelName = new javax.swing.JLabel();
         jLabelLevel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelBackgroud = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -81,8 +81,8 @@ public class ConfigDialog extends javax.swing.JDialog {
         jLabelLevel.setText("Difficulty");
         jPanel1.add(jLabelLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/configdialogbackground.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 510));
+        jLabelBackgroud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/configdialogbackground.jpg"))); // NOI18N
+        jPanel1.add(jLabelBackgroud, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 510));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,7 +160,7 @@ public class ConfigDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonReady;
     private javax.swing.JComboBox<String> jComboBoxLevel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelBackgroud;
     private javax.swing.JLabel jLabelLevel;
     private javax.swing.JLabel jLabelName;
     private javax.swing.JPanel jPanel1;

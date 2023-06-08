@@ -38,7 +38,7 @@ public class Game extends javax.swing.JFrame {
 
         scoreboard = new com.mycompany.snake.ScoreBoard();
         board = new com.mycompany.snake.Board();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBar = new javax.swing.JMenuBar();
         jMenuEdit = new javax.swing.JMenu();
         jItemConfig = new javax.swing.JMenuItem();
         jMenuAbout = new javax.swing.JMenu();
@@ -69,10 +69,10 @@ public class Game extends javax.swing.JFrame {
 
         getContentPane().add(board, java.awt.BorderLayout.LINE_START);
 
-        jMenuBar1.setFocusCycleRoot(true);
-        jMenuBar1.addFocusListener(new java.awt.event.FocusAdapter() {
+        jMenuBar.setFocusCycleRoot(true);
+        jMenuBar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jMenuBar1FocusGained(evt);
+                jMenuBarFocusGained(evt);
             }
         });
 
@@ -112,7 +112,7 @@ public class Game extends javax.swing.JFrame {
         });
         jMenuEdit.add(jItemConfig);
 
-        jMenuBar1.add(jMenuEdit);
+        jMenuBar.add(jMenuEdit);
 
         jMenuAbout.setText("About");
         jMenuAbout.addMenuListener(new javax.swing.event.MenuListener() {
@@ -141,10 +141,10 @@ public class Game extends javax.swing.JFrame {
         });
         jMenuAbout.add(jMenuItem);
 
-        jMenuBar1.add(jMenuAbout);
+        jMenuBar.add(jMenuAbout);
 
-        jMenuBar1.add(Box.createHorizontalGlue());
-        setJMenuBar(jMenuBar1);
+        jMenuBar.add(Box.createHorizontalGlue());
+        setJMenuBar(jMenuBar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -185,9 +185,9 @@ public class Game extends javax.swing.JFrame {
         board.pausedGame();
     }//GEN-LAST:event_jItemConfigMenuKeyPressed
 
-    private void jMenuBar1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jMenuBar1FocusGained
+    private void jMenuBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jMenuBarFocusGained
 
-    }//GEN-LAST:event_jMenuBar1FocusGained
+    }//GEN-LAST:event_jMenuBarFocusGained
 
     private void jMenuAboutMenuDeselected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenuAboutMenuDeselected
         if (!board.isGameOverTimer()) {
@@ -250,7 +250,7 @@ public class Game extends javax.swing.JFrame {
     private com.mycompany.snake.Board board;
     private javax.swing.JMenuItem jItemConfig;
     private javax.swing.JMenu jMenuAbout;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuEdit;
     private javax.swing.JMenuItem jMenuItem;
     private com.mycompany.snake.ScoreBoard scoreboard;

@@ -37,18 +37,18 @@ public class OptionsDialog extends javax.swing.JDialog{
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelName = new javax.swing.JLabel();
         jTextFieldOptions1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelDifficulty = new javax.swing.JLabel();
+        jLabelMapSize = new javax.swing.JLabel();
         jComboBoxBoardSize = new javax.swing.JComboBox<>();
-        jComboBoxOptions1 = new javax.swing.JComboBox<>();
+        jComboBoxDifficulty = new javax.swing.JComboBox<>();
         jButtonNewGame = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelWalls = new javax.swing.JLabel();
         jComboBoxWalls = new javax.swing.JComboBox<>();
         jComboBoxObstacles = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelObstacles = new javax.swing.JLabel();
+        jLabelBackgorund = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -59,10 +59,10 @@ public class OptionsDialog extends javax.swing.JDialog{
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("New name");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
+        jLabelName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelName.setText("New name");
+        jPanel1.add(jLabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
         jTextFieldOptions1.setPreferredSize(new java.awt.Dimension(64, 42));
         jTextFieldOptions1.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -75,17 +75,17 @@ public class OptionsDialog extends javax.swing.JDialog{
                 jTextFieldOptions1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldOptions1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, 100, 30));
+        jPanel1.add(jTextFieldOptions1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 90, 20));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Difficulty");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+        jLabelDifficulty.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelDifficulty.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDifficulty.setText("Difficulty");
+        jPanel1.add(jLabelDifficulty, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Map Size");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        jLabelMapSize.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelMapSize.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMapSize.setText("Map Size");
+        jPanel1.add(jLabelMapSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
         jComboBoxBoardSize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Small", "Medium", "Big" }));
         jComboBoxBoardSize.addActionListener(new java.awt.event.ActionListener() {
@@ -93,15 +93,15 @@ public class OptionsDialog extends javax.swing.JDialog{
                 jComboBoxBoardSizeActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBoxBoardSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
+        jPanel1.add(jComboBoxBoardSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
 
-        jComboBoxOptions1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Beginner", "Normal", "Expert" }));
-        jComboBoxOptions1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxDifficulty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Beginner", "Normal", "Expert" }));
+        jComboBoxDifficulty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxOptions1ActionPerformed(evt);
+                jComboBoxDifficultyActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBoxOptions1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
+        jPanel1.add(jComboBoxDifficulty, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
 
         jButtonNewGame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playagainbutton.png"))); // NOI18N
         jButtonNewGame.setToolTipText("");
@@ -111,35 +111,37 @@ public class OptionsDialog extends javax.swing.JDialog{
                 jButtonNewGameActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 140, 50));
+        jPanel1.add(jButtonNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 140, 50));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Walls");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        jLabelWalls.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelWalls.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelWalls.setText("Walls");
+        jPanel1.add(jLabelWalls, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
 
-        jComboBoxWalls.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "False", "True" }));
+        jComboBoxWalls.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
         jComboBoxWalls.setToolTipText("");
         jComboBoxWalls.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxWallsActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBoxWalls, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
+        jPanel1.add(jComboBoxWalls, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
-        jComboBoxObstacles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "False", "True" }));
+        jComboBoxObstacles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes" }));
         jComboBoxObstacles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxObstaclesActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBoxObstacles, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
+        jPanel1.add(jComboBoxObstacles, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
 
-        jLabel6.setText("Obstacles");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        jLabelObstacles.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabelObstacles.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelObstacles.setText("Obstacles");
+        jPanel1.add(jLabelObstacles, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/optionsdialogbackground.jpg"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, -1, 400));
+        jLabelBackgorund.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/optionsdialogbackground.jpg"))); // NOI18N
+        jPanel1.add(jLabelBackgorund, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, -1, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,9 +161,9 @@ public class OptionsDialog extends javax.swing.JDialog{
 
     }//GEN-LAST:event_jTextFieldOptions1ActionPerformed
 
-    private void jComboBoxOptions1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOptions1ActionPerformed
-        ConfigData.instance.setLevel(jComboBoxOptions1.getSelectedIndex());
-    }//GEN-LAST:event_jComboBoxOptions1ActionPerformed
+    private void jComboBoxDifficultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDifficultyActionPerformed
+        ConfigData.instance.setLevel(jComboBoxDifficulty.getSelectedIndex());
+    }//GEN-LAST:event_jComboBoxDifficultyActionPerformed
 
     private void jButtonNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewGameActionPerformed
         dispose();
@@ -237,15 +239,15 @@ public class OptionsDialog extends javax.swing.JDialog{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonNewGame;
     private javax.swing.JComboBox<String> jComboBoxBoardSize;
+    private javax.swing.JComboBox<String> jComboBoxDifficulty;
     private javax.swing.JComboBox<String> jComboBoxObstacles;
-    private javax.swing.JComboBox<String> jComboBoxOptions1;
     private javax.swing.JComboBox<String> jComboBoxWalls;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelBackgorund;
+    private javax.swing.JLabel jLabelDifficulty;
+    private javax.swing.JLabel jLabelMapSize;
+    private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelObstacles;
+    private javax.swing.JLabel jLabelWalls;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldOptions1;
     // End of variables declaration//GEN-END:variables

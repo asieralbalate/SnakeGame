@@ -43,6 +43,7 @@ public class Snake {
         }
     }
 
+    /*---Declaraciones---*/
     public Direction getDirection() {
         return direction;
     }
@@ -61,6 +62,19 @@ public class Snake {
         return false;
     }
 
+    public int getHeadRow() {
+        return listOfNodes.get(0).getRow();
+    }
+
+    public int getHeadCol() {
+        return listOfNodes.get(0).getCol();
+    }
+
+    public int getBoardRC() {
+        return ConfigData.instance.getBoardRowCol();
+    }
+
+    /*---Procesos---*/
     public void move() {
         Node node;
         int row = getHeadRow();
@@ -172,7 +186,7 @@ public class Snake {
                     }
                     break;
                 case DOWN:
-                    if (row + 1 >= getBoardRC()|| containNode(row + 1, col)) {
+                    if (row + 1 >= getBoardRC() || containNode(row + 1, col)) {
                         return false;
                     }
                     break;
@@ -252,18 +266,6 @@ public class Snake {
         return true;
     }
 
-    public int getHeadRow() {
-        return listOfNodes.get(0).getRow();
-    }
-
-    public int getHeadCol() {
-        return listOfNodes.get(0).getCol();
-    }
-
-    public int getBoardRC() {
-        return ConfigData.instance.getBoardRowCol();
-    }
-
     public boolean eatFood(Food food) {
         if (food == null) {
             return false;
@@ -280,62 +282,9 @@ public class Snake {
         }
     }
 
-    public void printSnake(Graphics g, int squareWidth, int squareHeight) {
-        
-        for(int i = 0; i < listOfNodes.size(); i++) {
-            
-            Node nodeToPrint = listOfNodes.get(i);
-            
-            int row = nodeToPrint.getRow();
-            int col = nodeToPrint.getCol();
-            
-            BodyType bodyType = BodyType.HEAD_UP;
-            
-            if (nodeToPrint == listOfNodes.get(0)) {
-                
-                switch (direction) {
-                    case UP:
-                        break;
-                    case DOWN:
-                        bodyType = BodyType.HEAD_DOWN;
-                        break;
-                    case RIGHT:
-                        bodyType = BodyType.HEAD_RIGHT;
-                        break;
-                    case LEFT:
-                        bodyType = BodyType.HEAD_LEFT;
-                        break;
-                    default:
-                        throw new AssertionError();
-                }
-                
-            } else if (nodeToPrint == listOfNodes.get(listOfNodes.size() - 1)) {
-                
-                Node previousNode = listOfNodes.get(listOfNodes.size() - 2);
-                
-                int rowPrev = previousNode.getRow();
-                int colPrev = previousNode.getCol();
-                
-                if (row - 1 == rowPrev && col == colPrev) {
-                    bodyType = BodyType.TAIL_UP;
-                } else if (row + 1 == rowPrev && col == colPrev) {
-                    bodyType = BodyType.TAIL_DOWN;
-                } else if (row == rowPrev && col + 1 == colPrev) {
-                    bodyType = BodyType.TAIL_RIGHT;
-                } else {
-                    bodyType = BodyType.TAIL_LEFT;
-                }
-                
-            } else {
-                bodyType = turns(row, col, i);
-            }
-            
-            Util.drawSnake(g, row, col, squareWidth, squareHeight, bodyType);
-        }
-    }
-    
+    /*---Como insertar las imagenes---*/
     private BodyType turns(int row, int col, int i) {
-        
+
         Node prevNode = listOfNodes.get(i - 1);
         Node nextNode = listOfNodes.get(i + 1);
 
@@ -352,7 +301,7 @@ public class Snake {
         } else if (prevCol == nextCol) {
             //body vertical
             bodyType = BodyType.BODY_VERT;
-            
+
         } else {
 
             int boardRowCol = getBoardRC() - 1;
@@ -368,7 +317,7 @@ public class Snake {
                     } else {
                         bodyType = BodyType.TURN_NE;
                     }
-                    
+
                 } else if (nextCol > col && prevRow > row) {
                     // Draw the south east with excepcions
                     if (nextRow == 0 && prevRow == boardRowCol) {
@@ -378,7 +327,7 @@ public class Snake {
                     } else {
                         bodyType = BodyType.TURN_SE;
                     }
-                    
+
                 } else if (nextCol < col && prevRow < row) {
                     // Draw the north west with excepcions 
                     if (nextCol == 0 && prevCol == boardRowCol) {
@@ -388,7 +337,7 @@ public class Snake {
                     } else {
                         bodyType = BodyType.TURN_NW;
                     }
-                    
+
                 } else if (nextCol < col && prevRow > row) {
                     // Draw the south west with excepcions
                     if (nextCol == 0 && prevCol == boardRowCol) {
@@ -401,7 +350,7 @@ public class Snake {
                 }
 
             } else if (nextCol == col && prevRow == row) {
-                
+
                 if (nextRow < row && prevCol > col) {
                     // Draw the north east with excepcions
                     if (nextRow == 0 && prevRow == boardRowCol) {
@@ -411,7 +360,7 @@ public class Snake {
                     } else {
                         bodyType = BodyType.TURN_NE;
                     }
-                    
+
                 } else if (nextRow > row && prevCol > col) {
                     // Draw the south east with excepcions
                     if (nextRow == boardRowCol && prevRow == 0) {
@@ -421,7 +370,7 @@ public class Snake {
                     } else {
                         bodyType = BodyType.TURN_SE;
                     }
-                    
+
                 } else if (nextRow < row && prevCol < col) {
                     // Draw the north west with excepcions
                     if (nextCol == boardRowCol && prevCol == 0) {
@@ -431,7 +380,7 @@ public class Snake {
                     } else {
                         bodyType = BodyType.TURN_NW;
                     }
-                    
+
                 } else if (nextRow > row && prevCol < col) {
                     // Draw the south west with excepcions
                     if (nextCol == boardRowCol && prevCol == 0) {
@@ -447,4 +396,57 @@ public class Snake {
         return bodyType;
     }
 
+    public void printSnake(Graphics g, int squareWidth, int squareHeight) {
+
+        for (int i = 0; i < listOfNodes.size(); i++) {
+
+            Node nodeToPrint = listOfNodes.get(i);
+
+            int row = nodeToPrint.getRow();
+            int col = nodeToPrint.getCol();
+
+            BodyType bodyType = BodyType.HEAD_UP;
+
+            if (nodeToPrint == listOfNodes.get(0)) {
+
+                switch (direction) {
+                    case UP:
+                        break;
+                    case DOWN:
+                        bodyType = BodyType.HEAD_DOWN;
+                        break;
+                    case RIGHT:
+                        bodyType = BodyType.HEAD_RIGHT;
+                        break;
+                    case LEFT:
+                        bodyType = BodyType.HEAD_LEFT;
+                        break;
+                    default:
+                        throw new AssertionError();
+                }
+
+            } else if (nodeToPrint == listOfNodes.get(listOfNodes.size() - 1)) {
+
+                Node previousNode = listOfNodes.get(listOfNodes.size() - 2);
+
+                int rowPrev = previousNode.getRow();
+                int colPrev = previousNode.getCol();
+
+                if (row - 1 == rowPrev && col == colPrev) {
+                    bodyType = BodyType.TAIL_UP;
+                } else if (row + 1 == rowPrev && col == colPrev) {
+                    bodyType = BodyType.TAIL_DOWN;
+                } else if (row == rowPrev && col + 1 == colPrev) {
+                    bodyType = BodyType.TAIL_RIGHT;
+                } else {
+                    bodyType = BodyType.TAIL_LEFT;
+                }
+
+            } else {
+                bodyType = turns(row, col, i);
+            }
+
+            Util.drawSnake(g, row, col, squareWidth, squareHeight, bodyType);
+        }
+    }
 }

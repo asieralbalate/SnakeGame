@@ -39,6 +39,7 @@ public class Board extends javax.swing.JPanel implements InitGamer {
     /**
      * Creates new form Board
      */
+    /*---Board e Inits---*/
     public Board() {
         initComponents();
         myInit();
@@ -67,13 +68,13 @@ public class Board extends javax.swing.JPanel implements InitGamer {
         foodFactory = new FoodFactory();
         keyAdapter = new MyKeyAdapter();
 
-        setFocusable(true);
         timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 tick();
             }
         });
+        setFocusable(true);
         highScore = 0;
     }
 
@@ -92,6 +93,54 @@ public class Board extends javax.swing.JPanel implements InitGamer {
         repaint();
     }
 
+    /*---Declaraciones---*/
+    public void setDeltaTime() {
+        switch (ConfigData.instance.getLevel()) {
+            case 0:
+                deltaTime = 350;
+                break;
+            case 1:
+                deltaTime = 250;
+                break;
+            case 2:
+                deltaTime = 150;
+                break;
+            default:
+                throw new AssertionError();
+        }
+        timer.setDelay(deltaTime);
+    }
+
+    private boolean haveNotObstacles() {
+        return ConfigData.instance.getObstaclesLevel();
+    }
+
+    public boolean isGameOverTimer() {
+        return isGameOver;
+    }
+
+    public int squareWidth() {
+        return getWidth() / ConfigData.instance.getBoardRowCol();
+    }
+
+    public int squareHeight() {
+        return getHeight() / ConfigData.instance.getBoardRowCol();
+    }
+
+    public void setIncrementer(Incrementer incrementer) {
+        this.incrementer = incrementer;
+    }
+
+    public void pausedGame() {
+        timer.stop();
+    }
+
+    @Override
+    public void continueGame() {
+        timer.start();
+    }
+
+    /*---Procesos---*/
     private void tick() {
         if (!movements.isEmpty()) {
             Direction dir = movements.get(0);
@@ -118,28 +167,40 @@ public class Board extends javax.swing.JPanel implements InitGamer {
             } else {
                 processGameOver();
             }
-            repaint();
-            Toolkit.getDefaultToolkit().sync();
+
         }
+        repaint();
+        Toolkit.getDefaultToolkit().sync();
     }
 
-    public void setDeltaTime() {
-        switch (ConfigData.instance.getLevel()) {
-            case 0:
-                deltaTime = 350;
-                break;
-            case 1:
-                deltaTime = 250;
-                break;
-            case 2:
-                deltaTime = 150;
-                break;
-            default:
-                throw new AssertionError();
+    private Food generateFood() {
+        Food foodToGenerate = foodFactory.getFood(snake);
+        if (!haveNotObstacles()) {
+            while (obstacles.isFood(food)) {
+                foodToGenerate = foodFactory.getFood(snake);
+            }
         }
-        timer.setDelay(deltaTime);
+        return foodToGenerate;
+
     }
 
+    public void processGameOver() {
+        timer.stop();
+        removeKeyListener(keyAdapter);
+        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        GameOverDialog gOverDialog = new GameOverDialog(topFrame, true);
+        gOverDialog.setInitGamer(this);
+        gOverDialog.setScore(incrementer.getScore());
+        if (incrementer.getScore() > highScore) {
+            highScore = incrementer.getScore();
+        }
+        gOverDialog.setName();
+        gOverDialog.setHighScore(highScore);
+        gOverDialog.setVisible(true);
+        isGameOver = true;
+    }
+    
+    /*---Pintar y controles---*/
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -163,30 +224,9 @@ public class Board extends javax.swing.JPanel implements InitGamer {
         if (food != null) {
             food.printFood(g, squareWidth(), squareHeight());
         }
-    }
-
-    private boolean haveNotObstacles() {
-        return ConfigData.instance.getObstaclesLevel();
-    }
-
-    public boolean isGameOverTimer() {
-        return isGameOver;
-    }
-
-    private Food generateFood() {
-        return foodFactory.getFood(snake);
-    }
-
-    public int squareWidth() {
-        return getWidth() / ConfigData.instance.getBoardRowCol();
-    }
-
-    public int squareHeight() {
-        return getHeight() / ConfigData.instance.getBoardRowCol();
-    }
-
-    public void setIncrementer(Incrementer incrementer) {
-        this.incrementer = incrementer;
+        if (obstacles != null && !haveNotObstacles()) {
+            obstacles.printObstacles(g, squareWidth, squareHeight);
+        }
     }
 
     class MyKeyAdapter extends KeyAdapter {
@@ -225,30 +265,6 @@ public class Board extends javax.swing.JPanel implements InitGamer {
         }
     }
 
-    public void pausedGame() {
-        timer.stop();
-    }
-
-    @Override
-    public void continueGame() {
-        timer.start();
-    }
-
-    public void processGameOver() {
-        timer.stop();
-        removeKeyListener(keyAdapter);
-        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-        GameOverDialog gOverDialog = new GameOverDialog(topFrame, true);
-        gOverDialog.setInitGamer(this);
-        gOverDialog.setScore(incrementer.getScore());
-        if (incrementer.getScore() > highScore) {
-            highScore = incrementer.getScore();
-        }
-        gOverDialog.setName();
-        gOverDialog.setHighScore(highScore);
-        gOverDialog.setVisible(true);
-        isGameOver = true;
-    }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

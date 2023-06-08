@@ -22,6 +22,7 @@ public class ConfigData {
         name = "NoName";
         size = 0;
         walls = 0;
+        obstacles = 0;
     }
 
     /*----Name and Level----*/
@@ -110,6 +111,10 @@ public class ConfigData {
     }
 
     public boolean getObstaclesLevel() {
-        return ConfigData.instance.getObstacle() == 0;
+        if (ConfigData.instance.getObstacle() == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -4,15 +4,17 @@
  */
 package com.mycompany.snake;
 
-
 /**
  *
  * @author asier
  */
-public class OptionsDialog extends javax.swing.JDialog{
+public class OptionsDialog extends javax.swing.JDialog {
+
     public InitGamer initGamer;
+
     /**
      * Creates new form OptionsDialog
+     *
      * @param parent
      * @param modal
      */
@@ -21,10 +23,11 @@ public class OptionsDialog extends javax.swing.JDialog{
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
     public void setInitGamer(InitGamer initGamer) {
         this.initGamer = initGamer;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,7 +76,7 @@ public class OptionsDialog extends javax.swing.JDialog{
                 jTextFieldOptions1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldOptions1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 90, 20));
+        jPanel1.add(jTextFieldOptions1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 90, 30));
 
         jLabelDifficulty.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelDifficulty.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,7 +157,7 @@ public class OptionsDialog extends javax.swing.JDialog{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void jTextFieldOptions1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOptions1ActionPerformed
 
     }//GEN-LAST:event_jTextFieldOptions1ActionPerformed
@@ -169,7 +172,9 @@ public class OptionsDialog extends javax.swing.JDialog{
     }//GEN-LAST:event_jButtonNewGameActionPerformed
 
     private void jTextFieldOptions1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldOptions1FocusLost
-    if (jTextFieldOptions1 != null) {    
+        if (jTextFieldOptions1.getText().isEmpty()) {
+            jTextFieldOptions1.setText(ConfigData.instance.getName());
+        } else {
             ConfigData.instance.setName(jTextFieldOptions1.getText());
         }
     }//GEN-LAST:event_jTextFieldOptions1FocusLost
@@ -189,9 +194,7 @@ public class OptionsDialog extends javax.swing.JDialog{
     private void jComboBoxObstaclesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxObstaclesActionPerformed
         ConfigData.instance.setObstaclesLevel(jComboBoxObstacles.getSelectedIndex());
     }//GEN-LAST:event_jComboBoxObstaclesActionPerformed
-    
 
-    
     /**
      * @param args the command line arguments
      */

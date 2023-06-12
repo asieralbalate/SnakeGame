@@ -76,6 +76,7 @@ public class Snake {
 
     /*---Procesos---*/
     public void move() {
+        /**Hace que la serpiente avance**/
         Node node;
         int row = getHeadRow();
         int col = getHeadCol();

@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.List;
 import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -97,10 +96,10 @@ public class Board extends javax.swing.JPanel implements InitGamer {
     public void setDeltaTime() {
         switch (ConfigData.instance.getLevel()) {
             case 0:
-                deltaTime = 350;
+                deltaTime = 250;
                 break;
             case 1:
-                deltaTime = 250;
+                deltaTime = 200;
                 break;
             case 2:
                 deltaTime = 150;
@@ -174,13 +173,13 @@ public class Board extends javax.swing.JPanel implements InitGamer {
     }
 
     private Food generateFood() {
-        Food foodToGenerate = foodFactory.getFood(snake);
+        food = foodFactory.getFood(snake);
         if (!haveNotObstacles()) {
             while (obstacles.isFood(food)) {
-                foodToGenerate = foodFactory.getFood(snake);
+                food = foodFactory.getFood(snake);
             }
         }
-        return foodToGenerate;
+        return food;
 
     }
 
@@ -235,26 +234,26 @@ public class Board extends javax.swing.JPanel implements InitGamer {
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_LEFT:
-                    if (snake.getDirection() != Direction.RIGHT) {
+                    if (snake.getDirection() != Direction.RIGHT || snake.getDirection() != Direction.LEFT) {
                         snake.setDirection(Direction.LEFT);
                         movements.add(Direction.LEFT);
                         break;
                     }
                 case KeyEvent.VK_RIGHT:
-                    if (snake.getDirection() != Direction.LEFT) {
+                    if (snake.getDirection() != Direction.LEFT || snake.getDirection() != Direction.RIGHT) {
                         snake.setDirection(Direction.RIGHT);
                         movements.add(Direction.RIGHT);
                         break;
                     }
 
                 case KeyEvent.VK_UP:
-                    if (snake.getDirection() != Direction.DOWN) {
+                    if (snake.getDirection() != Direction.DOWN || snake.getDirection() != Direction.UP) {
                         snake.setDirection(Direction.UP);
                         movements.add(Direction.UP);
                         break;
                     }
                 case KeyEvent.VK_DOWN:
-                    if (snake.getDirection() != Direction.UP) {
+                    if (snake.getDirection() != Direction.UP || snake.getDirection() != Direction.DOWN) {
                         snake.setDirection(Direction.DOWN);
                         movements.add(Direction.DOWN);
                         break;

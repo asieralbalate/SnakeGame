@@ -20,8 +20,6 @@ public class OptionsDialog extends javax.swing.JDialog{
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        
-
     }
     
     public void setInitGamer(InitGamer initGamer) {
@@ -171,7 +169,7 @@ public class OptionsDialog extends javax.swing.JDialog{
     }//GEN-LAST:event_jButtonNewGameActionPerformed
 
     private void jTextFieldOptions1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldOptions1FocusLost
-        if (jTextFieldOptions1 != null) {    
+    if (jTextFieldOptions1 != null) {    
             ConfigData.instance.setName(jTextFieldOptions1.getText());
         }
     }//GEN-LAST:event_jTextFieldOptions1FocusLost

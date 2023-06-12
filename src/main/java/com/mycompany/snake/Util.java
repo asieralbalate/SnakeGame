@@ -44,7 +44,7 @@ public class Util {
     }
 
     public static void drawObstacles(Graphics g, int row, int col, int squareWidth, int squareHeight) {
-        ImageIcon imageIcons = new ImageIcon(Util.class.getResource("/images/rock.png"));
+        ImageIcon imageIcons = new ImageIcon(Util.class.getResource("/images/cactus.png"));
         Image image = imageIcons.getImage();
         g.drawImage(image, col * squareWidth, row * squareHeight, squareWidth, squareHeight, null);
     }

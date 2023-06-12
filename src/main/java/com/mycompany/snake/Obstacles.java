@@ -34,7 +34,11 @@ public class Obstacles {
     }
     
     private boolean obstacleCanGenerate(Snake snake, int row, int col) {
-        return snake.containNode(row, col) && isInTheList(row, col);
+        if(snake.containNode(row, col) || isInTheList(row, col)){
+            return true;
+        } else {
+            return false;
+        }
     }
     
     private int getNumObstacles() {

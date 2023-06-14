@@ -5,9 +5,6 @@
 package com.mycompany.snake;
 
 import java.awt.Frame;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 /**
  *

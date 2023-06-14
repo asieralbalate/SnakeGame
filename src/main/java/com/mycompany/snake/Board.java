@@ -234,26 +234,26 @@ public class Board extends javax.swing.JPanel implements InitGamer {
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_LEFT:
-                    if (snake.getDirection() != Direction.RIGHT || snake.getDirection() != Direction.LEFT) {
+                    if (snake.getDirection() != Direction.RIGHT) {
                         snake.setDirection(Direction.LEFT);
                         movements.add(Direction.LEFT);
                         break;
                     }
                 case KeyEvent.VK_RIGHT:
-                    if (snake.getDirection() != Direction.LEFT || snake.getDirection() != Direction.RIGHT) {
+                    if (snake.getDirection() != Direction.LEFT) {
                         snake.setDirection(Direction.RIGHT);
                         movements.add(Direction.RIGHT);
                         break;
                     }
 
                 case KeyEvent.VK_UP:
-                    if (snake.getDirection() != Direction.DOWN || snake.getDirection() != Direction.UP) {
+                    if (snake.getDirection() != Direction.DOWN) {
                         snake.setDirection(Direction.UP);
                         movements.add(Direction.UP);
                         break;
                     }
                 case KeyEvent.VK_DOWN:
-                    if (snake.getDirection() != Direction.UP || snake.getDirection() != Direction.DOWN) {
+                    if (snake.getDirection() != Direction.UP) {
                         snake.setDirection(Direction.DOWN);
                         movements.add(Direction.DOWN);
                         break;
